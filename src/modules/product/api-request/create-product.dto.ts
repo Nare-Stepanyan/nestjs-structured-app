@@ -25,12 +25,4 @@ export class CreateProductDto {
   @ApiProperty()
   @IsNumber()
   cal: number;
-
-  // @ApiProperty()
-  // @IsDate()
-  // created_at: Date;
-
-  // @ApiProperty()
-  // @IsDate()
-  // updated_at: Date;
 }

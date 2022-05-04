@@ -1,4 +1,4 @@
-import { IsString, IsNumber } from 'class-validator';
+import { IsString, IsNumber, IsDate } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class ProductDto {
@@ -30,11 +30,11 @@ export class ProductDto {
   @IsNumber()
   readonly cal: number;
 
-  // @ApiProperty()
-  // @IsDate()
-  // readonly created_at: Date;
+  @ApiProperty()
+  @IsDate()
+  readonly created_at: Date;
 
-  // @ApiProperty()
-  // @IsDate()
-  // readonly updated_at: Date;
+  @ApiProperty()
+  @IsDate()
+  readonly updated_at: Date;
 }

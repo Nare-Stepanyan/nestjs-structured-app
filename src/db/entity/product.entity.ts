@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Product {
@@ -23,9 +29,15 @@ export class Product {
   @Column()
   cal: number;
 
-  // @Column()
-  // created_at: Date;
+  @CreateDateColumn({
+    nullable: false,
+    name: 'dt_create',
+  })
+  created_at: Date;
 
-  // @Column()
-  // updated_at: Date;
+  @UpdateDateColumn({
+    nullable: false,
+    name: 'dt_modified',
+  })
+  updated_at: Date;
 }
