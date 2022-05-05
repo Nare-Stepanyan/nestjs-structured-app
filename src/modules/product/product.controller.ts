@@ -7,11 +7,13 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from './api-request/create-product.dto';
+import { ProductStatusDto } from './api-request/product-status.dto';
 import { UpdateProductDto } from './api-request/update-product.dto';
 import { ProductDto } from './api-response/product.dto';
 import { ProductService } from './product.service';
@@ -56,6 +58,19 @@ export class ProductController {
     @Body() updateProductDto: UpdateProductDto,
   ): Promise<Product> {
     return this.productService.updateProduct(id, updateProductDto);
+  }
+
+  @Patch('/:id/status')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Update Product Status' })
+  @ApiOkResponse({ status: HttpStatus.OK, type: ProductDto })
+  @ApiBody({ type: ProductStatusDto })
+  updateProductStatus(
+    @Param('id') id: string,
+    @Body() productStatusDto: ProductStatusDto,
+  ): Promise<Product> {
+    const { status } = productStatusDto;
+    return this.productService.updateProductStatus(id, status);
   }
 
   @Delete('/:id')

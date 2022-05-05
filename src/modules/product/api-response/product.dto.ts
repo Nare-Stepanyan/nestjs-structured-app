@@ -1,5 +1,6 @@
-import { IsString, IsNumber, IsDate } from 'class-validator';
+import { IsString, IsNumber, IsDate, IsEnum } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { ProductStatus } from '@app/common/enums/product-status.enum';
 
 export class ProductDto {
   @ApiProperty()
@@ -29,6 +30,10 @@ export class ProductDto {
   @ApiProperty()
   @IsNumber()
   readonly cal: number;
+
+  @ApiProperty()
+  @IsEnum(ProductStatus)
+  readonly status: ProductStatus;
 
   @ApiProperty()
   @IsDate()

@@ -1,3 +1,4 @@
+import { ProductStatus } from '@app/common/enums/product-status.enum';
 import {
   Column,
   CreateDateColumn,
@@ -29,15 +30,16 @@ export class Product {
   @Column()
   cal: number;
 
-  @CreateDateColumn({
-    nullable: false,
-    name: 'dt_create',
+  @Column({
+    type: 'enum',
+    enum: ProductStatus,
+    default: ProductStatus.IN_STOCK,
   })
+  status: ProductStatus;
+
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   created_at: Date;
 
-  @UpdateDateColumn({
-    nullable: false,
-    name: 'dt_modified',
-  })
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
   updated_at: Date;
 }

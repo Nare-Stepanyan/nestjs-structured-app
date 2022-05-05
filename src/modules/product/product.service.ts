@@ -1,3 +1,4 @@
+import { ProductStatus } from '@app/common/enums/product-status.enum';
 import { Product } from '@app/db/entity/product.entity';
 import { ProductRepository } from '@app/db/repository/product.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
@@ -13,16 +14,11 @@ export class ProductService {
   ) {}
 
   async getAllProducts(): Promise<Product[]> {
-    const products = await this.productRepository.find();
-    return products;
+    return this.productRepository.getAllProducts();
   }
 
   async getProductById(id: string): Promise<Product> {
-    const product = await this.productRepository.findOne(id);
-    if (!product) {
-      throw new NotFoundException(`Product with ID "${id}" not found`);
-    }
-    return product;
+    return this.productRepository.getProductById(id);
   }
 
   async deleteProduct(id: string): Promise<void> {
@@ -37,25 +33,16 @@ export class ProductService {
     id: string,
     updateProductDto: UpdateProductDto,
   ): Promise<Product> {
-    const product = await this.getProductById(id);
-    const updatedProduct = { ...product, ...updateProductDto };
-    await this.productRepository.update(id, updatedProduct);
-    return await this.productRepository.findOne(id);
+    return this.productRepository.updateProduct(id, updateProductDto);
   }
 
+  async updateProductStatus(
+    id: string,
+    status: ProductStatus,
+  ): Promise<Product> {
+    return this.productRepository.updateProductStatus(id, status);
+  }
   async createProduct(createProductDto: CreateProductDto): Promise<Product> {
-    const { name, price, description, delivery_price, cal, discount } =
-      createProductDto;
-    const productData = {
-      name,
-      price,
-      description,
-      delivery_price,
-      cal,
-      discount,
-    };
-    const product = this.productRepository.create(productData);
-    await this.productRepository.save(product);
-    return product;
+    return this.productRepository.createProduct(createProductDto);
   }
 }
