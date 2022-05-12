@@ -11,6 +11,7 @@ import { ConfigService } from '@nestjs/config';
 import { PingModule } from './modules/ping/ping.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ProductModule } from './modules/product/product.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ProductModule } from './modules/product/product.module';
     PingModule,
     AuthModule,
     ProductModule,
+    UserModule,
   ],
   providers: [ConfigService],
 })

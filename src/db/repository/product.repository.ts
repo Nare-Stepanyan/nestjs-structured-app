@@ -1,6 +1,6 @@
 import { ProductStatus } from '@app/common/enums/product-status.enum';
-import { CreateProductDto } from '@app/modules/product/api-request/create-product.dto';
-import { UpdateProductDto } from '@app/modules/product/api-request/update-product.dto';
+import { CreateProductDto } from '@app/modules/product/dto/api-request/create-product.dto';
+import { UpdateProductDto } from '@app/modules/product/dto/api-request/update-product.dto';
 import { NotFoundException } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { Product } from '../entity/product.entity';
@@ -33,7 +33,6 @@ export class ProductRepository extends Repository<Product> {
     }
     return product;
   }
-
   async updateProduct(
     id: string,
     updateProductDto: UpdateProductDto,
@@ -43,7 +42,6 @@ export class ProductRepository extends Repository<Product> {
     await this.save(updatedProduct);
     return await this.findOne(id);
   }
-
   async updateProductStatus(
     id: string,
     status: ProductStatus,
@@ -52,5 +50,11 @@ export class ProductRepository extends Repository<Product> {
     product.status = status;
     await this.save(product);
     return product;
+  }
+  async deleteProduct(id: string): Promise<void> {
+    const result = await this.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Product with ID: ${id} not found`);
+    }
   }
 }

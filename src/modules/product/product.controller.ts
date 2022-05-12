@@ -12,10 +12,10 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CreateProductDto } from './api-request/create-product.dto';
-import { ProductStatusDto } from './api-request/product-status.dto';
-import { UpdateProductDto } from './api-request/update-product.dto';
-import { ProductDto } from './api-response/product.dto';
+import { CreateProductDto } from './dto/api-request/create-product.dto';
+import { ProductStatusDto } from './dto/api-request/product-status.dto';
+import { UpdateProductDto } from './dto/api-request/update-product.dto';
+import { ProductDto } from './dto/api-response/product.dto';
 import { ProductService } from './product.service';
 
 @ApiTags('product')

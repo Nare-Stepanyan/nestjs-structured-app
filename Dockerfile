@@ -16,3 +16,4 @@ COPY --from=deps /usr/app/node_modules /usr/app/node_modules
 COPY . .
 CMD yarn start
 EXPOSE 3000
+
