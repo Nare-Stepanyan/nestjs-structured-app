@@ -9,9 +9,9 @@
     "TYPEORM_MIGRATIONS_RUN": true,
     "TYPEORM_LOGGING": true,
     "TYPEORM_TYPE": "postgres",
-    "TYPEORM_HOST": "postgres",
-    "TYPEORM_USERNAME": "preezma",
-    "TYPEORM_PASSWORD": "secret",
+    "TYPEORM_HOST": "localhost",
+    "TYPEORM_USERNAME": "postgres",
+    "TYPEORM_PASSWORD": "hovpostgresdb",
     "TYPEORM_DATABASE": "db_eatnact",
     "TYPEORM_PORT": 5432
   }
