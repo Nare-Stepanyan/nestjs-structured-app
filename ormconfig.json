@@ -1,9 +1,9 @@
 {
-  "name": "postgres",
+  "name": "default",
   "type": "postgres",
-  "host": "localhost",
-  "username": "postgres",
-  "password": "hovpostgresdb",
+  "host": "postgres",
+  "username": "preezma",
+  "password": "secret",
   "database": "db_eatnact",
   "port": 5432,
   "logging": true,
