@@ -11,8 +11,8 @@
     "TYPEORM_TYPE": "postgres",
     "TYPEORM_HOST": "postgres",
     "TYPEORM_USERNAME": "preezma",
-    "TYPEORM_PASSWORD": "hovpostgresdb",
-    "TYPEORM_DATABASE": "secret",
+    "TYPEORM_PASSWORD": "secret",
+    "TYPEORM_DATABASE": "db_eatnact",
     "TYPEORM_PORT": 5432
   }
 }
