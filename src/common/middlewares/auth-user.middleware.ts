@@ -4,7 +4,7 @@ import * as JWT from 'jsonwebtoken';
 import { IRequestWithUser } from '../interfaces/requrest-with-user.interface';
 import { ConfigService } from '@nestjs/config';
 import { KeycloakUserFromToken } from '@app/common/classes/keycloak-user.class';
-import { IKeycloakTokenData } from '@app/common/interfaces/keycloak-token-data.interface';
+//import { IKeycloakTokenData } from '@app/common/interfaces/keycloak-token-data.interface';
 
 const AUTH_HEADER = 'authorization';
 const BEARER_AUTH_SCHEME = 'Bearer';
@@ -34,7 +34,7 @@ export class AuthUserMiddleware implements NestMiddleware {
       return next();
     }
 
-    const tokenData: IKeycloakTokenData = JWT.decode(token);
+    const tokenData: any = JWT.decode(token);
     const now = +new Date();
     const expiredAt = unixToMilliseconds(tokenData.exp);
     const notValidBefore = unixToMilliseconds(tokenData.nbf);

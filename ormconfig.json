@@ -1,7 +1,7 @@
 {
   "name": "default",
   "type": "postgres",
-  "host": "postgres",
+  "host": "localhost",
   "username": "preezma",
   "password": "secret",
   "database": "db_eatnact",

@@ -15,7 +15,11 @@ export class User {
   @Column()
   cognito_id: string;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum: UserStatus,
+    default: UserStatus.ACTIVE,
+  })
   status: UserStatus;
 
   @Column()
@@ -30,8 +34,11 @@ export class User {
   @Column()
   phoneNumber: string;
 
-  @Column()
-  birth_date: Date;
+  // @Column({
+  //   type: 'date',
+  //   nullable: true,
+  // })
+  // birth_date: Date | null;
 
   @Column()
   gender: string;
