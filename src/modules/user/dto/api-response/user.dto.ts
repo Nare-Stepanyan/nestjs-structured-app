@@ -27,9 +27,9 @@ export class UserDto {
   @IsString()
   phoneNumber: string;
 
-  // @ApiProperty()
-  // @IsDate()
-  // birth_date: Date;
+  @ApiProperty()
+  @IsDate()
+  birth_date: Date;
 
   @ApiProperty()
   @IsString()
