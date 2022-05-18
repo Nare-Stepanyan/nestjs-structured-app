@@ -36,9 +36,10 @@ export class User {
 
   // @Column({
   //   type: 'date',
+  //   default: () => 'NOW()',
   //   nullable: true,
   // })
-  // birth_date: Date | null;
+  // birth_date: Date;
 
   @Column()
   gender: string;
