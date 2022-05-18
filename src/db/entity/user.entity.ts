@@ -34,12 +34,12 @@ export class User {
   @Column()
   phoneNumber: string;
 
-  @Column({
-    type: 'date',
-    default: () => 'NOW()',
-    nullable: true,
-  })
-  birth_date: Date;
+  // @Column({
+  //   type: 'date',
+  //   default: () => 'NOW()',
+  //   nullable: true,
+  // })
+  // birth_date: Date;
 
   @Column()
   gender: string;
